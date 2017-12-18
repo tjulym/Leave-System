@@ -1,0 +1,59 @@
+<div class="modal fade" id="worker_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" *ngIf="worker">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h3>Details</h3>
+            </div>
+            <div class="modal-body">
+                <div class="box-content">
+            <form role="form"  #formRef="ngForm">
+              <fieldset ngModelGroup="modify">
+                <div class="form-group">
+                    <label for="name">工号</label>
+                    <input type="text" class="form-control" placeholder="" disabled="disabled" 
+                        [(ngModel)]="worker.worker_id" name="worker_id">
+                </div>     
+                <div class="form-group">
+                    <label for="name">姓名</label>
+                    <input type="text" class="form-control" placeholder="" 
+                        [(ngModel)]="worker.worker_name" name="worker_name">
+                </div>     
+                <div class="form-group">
+                    <label for="name">邮箱</label>
+                    <input type="text" class="form-control" placeholder="" 
+                        [(ngModel)]="worker.worker_email" name="worker_email">
+                </div>   
+                <div class="form-group">
+                    <label for="name">地址</label>
+                    <input type="text" class="form-control" placeholder="" 
+                        [(ngModel)]="worker.worker_address" name="worker_address">
+                </div>   
+                <div class="form-group">
+                    <label for="name">已用年假</label>
+                    <input type="text" class="form-control" placeholder="" 
+                        [(ngModel)]="worker.worker_year_holidays_used" name="worker_year_holidays_used">
+                </div>  
+                  <div class="form-group">
+                    <label for="name">剩余年假</label>
+                    <input type="text" class="form-control" placeholder="" 
+                        [(ngModel)]="worker.worker_year_holidays_residue" name="worker_year_holidays_residue">
+                </div>   
+                <div class="form-group">
+                    <label for="name">加班时长</label>
+                    <input type="text" class="form-control" placeholder="" 
+                        [(ngModel)]="worker.worker_workAdd_time" name="worker_workAdd_time">
+                </div>
+              </fieldset>
+                           
+            </form>
+
+        </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+                <a href="#" class="btn btn-primary" data-dismiss="modal" (click)="saveWorker()">Save changes</a>
+            </div>
+        </div>
+    </div>
+</div>

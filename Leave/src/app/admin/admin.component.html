@@ -1,0 +1,126 @@
+<div class="row" id="admin_user">
+  <div class="box col-md-12">
+      <div class="box-inner">
+          <div class="box-header well" data-original-title="">
+              <h2><i class="glyphicon glyphicon-edit"></i> 用户信息管理</h2>
+
+              <div class="box-icon">
+                  <a href="/admin/useradd" class="btn btn-round btn-default"><i class="glyphicon glyphicon-plus"></i></a>
+                  <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
+                  <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                  <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+              </div>
+          </div>
+          <div class="box-content">
+              <!-- <div id="dt_length" class="dataTables_length">
+                  <label>Show 
+                      <select size="1" name="dt_length" aria-controls="dt" v-model="per_page">
+                          <option value="10">10</option>
+                          <option value="25">25</option>
+                          <option value="50">50</option>
+                          <option value="100">100</option>
+                      </select> 
+                      entries
+                  </label>
+              </div> -->
+
+              <table class="table table-striped table-bordered bootstrap-datatable" id="dt" style="table-layout:fixed;" *ngIf="dataList !== null">
+                
+                 <thead>
+                     <tr>
+                         <th *ngFor="let col of columns">
+                              {{ col }}
+                         </th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr *ngFor="let entry of dataList" >
+                         <td class="center" data-label="工号">
+                            <div class="wrapTd">
+                                {{ entry?.worker_id }}
+                            </div> 
+                          </td>
+                         <td class="center" data-label="姓名">
+                           <div class="wrapTd">
+                              {{ entry?.worker_name }}
+                          </div> 
+                         </td>
+                         <td class="center" data-label="性别">{{  entry?.worker_male ?"男":"女" }}</td>
+                         <td class="center" data-label="部门" *ngIf="entry?.worker_degree.length == 1">
+                            <div class="wrapTd">
+                                {{ departments[(entry?.worker_degree)[0].degree_department_id-1].department_name }}
+                            </div>    
+                         </td>
+                         <td class="center" data-label="部门" *ngIf="entry['worker_degree'].length != 1">
+                             无
+                         </td>
+                         <td class="center" data-label="职务" *ngIf="entry?.worker_degree.length > 0">
+                            <div class="wrapTd">
+                                {{ degrees[entry['worker_degree'][0].degree_degree_id-1].degree_name }}
+                            </div> 
+                         </td>
+                         <td class="center" data-label="职务" *ngIf="entry?.worker_degree.length == 0">
+                            <div class="wrapTd">
+                                无
+                            </div> 
+                         </td>
+                         
+                         <td class="center" data-label="邮箱">
+                             <div class="wrapTd">
+                                 {{ entry.worker_email }}
+                             </div>
+                         </td>
+                         <td class="center" data-label="地址">
+                             <div class="wrapTd">
+                                 {{ entry.worker_address }}
+                             </div>
+                         </td>
+                         <td class="center" data-label="操作">
+                              <a class="btn btn-default btn-sm" (click)="loadWorker(entry)">
+                                 <i class="glyphicon glyphicon-zoom-in icon-white"></i>
+                                 修改
+                              </a>
+                              <a class="btn btn-default btn-sm" (click)="passwd(entry)">
+                                 <i class="glyphicon glyphicon-edit icon-white"></i>
+                                 密码
+                              </a>
+                              <a class="btn btn-danger btn-sm" (click)="permission(entry)">
+                                 <i class="glyphicon glyphicon-zoom-in icon-white"></i>
+                                 权限
+                              </a>
+                         </td>
+                      </tr>
+                 </tbody>
+             </table>
+
+               <!-- <ul id="pagination-demo" class="pagination-sm"></ul> -->
+               <app-pagination-bar  [totalPageNumber]="total_page_num" (paginationChange)="freshList($event)" *ngIf="total_page_num != null"></app-pagination-bar>
+          </div>
+      </div>
+  </div>
+  <!--/span-->
+
+  <app-user [worker]="selectedWorker"></app-user>
+  <app-passwd [worker_id]="selectedWorker.worker_id"></app-passwd>
+  <app-permit [worker]="selectedWorker" [department]="departments" 
+  [department_degrees]="department_degrees"></app-permit>
+
+</div><!--/row-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">×</button>
+              <h3>Settings</h3>
+          </div>
+          <div class="modal-body">
+              <p>No settings here...</p>
+          </div>
+          <div class="modal-footer">
+              <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+              <a href="#" class="btn btn-primary" data-dismiss="modal">Save changes</a>
+          </div>
+      </div>
+  </div>
+</div>

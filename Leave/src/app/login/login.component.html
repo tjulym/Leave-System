@@ -1,0 +1,59 @@
+
+
+<div class="ch-container">
+  <div class="row">
+      
+  <div class="row">
+      <div class="col-md-12 center login-header">
+          <h2>LEAVE APPLICATION</h2>
+      </div>
+      <!--/span-->
+  </div><!--/row-->
+
+  <div class="row" id="app">
+      <div class="well col-md-5 center login-box">
+          <div class="alert alert-info">
+              Please login with your Username and Password.
+          </div>
+          <form class="form-horizontal" #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+              <fieldset ngModelGroup="login">
+                  <div class="input-group input-group-lg">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
+                      <input name="username" type="text" class="form-control" placeholder="Username" [(ngModel)]="username" #usernameRef="ngModel" required>
+                  </div>
+
+                  <div class="clearfix"></div><br>
+
+                  <div class="input-group input-group-lg">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+                      <input name="password" type="password" class="form-control" placeholder="Password" [(ngModel)]="password" #passwordRef="ngModel" required>
+                  </div>
+                  <div class="clearfix"></div>
+                  
+                  <div class="input-prepend">
+                      <label class="remember" for="remember"><input type="checkbox" id="remember"> Remember me</label>
+                  </div>
+
+                  <div class="alert" class="{{tip_class}}" *ngIf="tip_show">
+                      <button type="button" class="close" (click)="tip_show=false">×</button>
+                      <strong>{{ tip_message1 }}</strong> {{ tip_message2 }}
+                  </div>
+
+                  <div class="clearfix"></div>
+
+                      <p class="center col-md-5">
+
+                          <button type="submit" class="btn btn-primary">Login</button>
+                      </p>
+              </fieldset>
+          </form>
+      </div>
+      <!--/span-->
+  </div><!--/row-->
+</div><!--/fluid-row-->
+
+</div>
+
+
+
+

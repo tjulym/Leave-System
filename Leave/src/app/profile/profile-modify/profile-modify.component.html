@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-edit"></i>员工详情</h2>
+
+                <div class="box-icon">
+                    <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                    <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content" id="info_modify" *ngIf="user !== undefined">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="name">工号</label>
+                        <input type="text" class="form-control"  placeholder="" disabled="disabled" [(ngModel)]="user.worker_id" [ngModelOptions]="{standalone: true}">
+                    </div>      
+                    <div class="form-group">
+                        <label for="name">职务</label>
+                        <input type="text" class="form-control"  placeholder="" disabled="disabled" [(ngModel)]="degree" [ngModelOptions]="{standalone: true}">
+                    </div> 
+                    <div class="form-group" v-if="user.worker_degree.length==1">
+                        <label for="name">部门</label>
+                        <input type="text" class="form-control"  placeholder="" disabled="disabled" [(ngModel)]="department" [ngModelOptions]="{standalone: true}">
+                    </div>
+                     <div class="form-group">
+                        <label for="name">性别</label>
+                        <input type="text" class="form-control"  placeholder="" disabled="disabled" [(ngModel)]="sex" [ngModelOptions]="{standalone: true}">
+                    </div> 
+                     <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" class="form-control"  placeholder="" disabled="disabled" [(ngModel)]="user.worker_name" [ngModelOptions]="{standalone: true}">
+                    </div> 
+                    <div class="form-group">
+                        <label for="name">邮箱</label>
+                        <input type="text" class="form-control"  placeholder="" [(ngModel)]="user.worker_email" [ngModelOptions]="{standalone: true}">
+                    </div>  
+                   
+                    <div class="form-group">
+                        <label for="name">住址</label>
+                        <input type="text" class="form-control"  placeholder="" [(ngModel)]="user.worker_address" [ngModelOptions]="{standalone: true}">
+                    </div>  
+                </form>
+                    <a class="ajax-link"><button type="submit" class="btn btn-default" (click)="modify_worker()">提交修改</button></a>
+            </div>
+        </div>
+    </div>
+    <!--/span-->
+
+</div><!--/row-->

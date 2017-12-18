@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-edit"></i>员工详情</h2>
+                <div class="box-icon">
+                    <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                    <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content" id="worker_info">
+                <ul class="dashboard-list">
+                    <li>
+                        <strong>工号：</strong> {{ user?.worker_id }}
+                        <br>
+                    </li>
+                    <li>
+                        <strong>姓名： </strong> {{ user?.worker_name }}
+                        <br>
+                    </li>
+                    <li>
+                        <strong>职务： </strong> {{ degree }}
+                        <br>
+                    </li>
+                    <li v-if="user.worker_degree.length==1">
+                        <strong>部门： </strong> {{ department }}
+                        <br>
+                    </li>
+                    <li>
+                        <strong>性别： </strong> {{ sex }}
+                        <br>
+                    </li>
+                    <li>
+                        <strong>已用年假： </strong> {{ user?.worker_year_holidays_used  }}
+                        <br>
+                    </li>
+                    <li>
+                        <strong>剩余年假： </strong> {{ user?.worker_year_holidays_residue }}
+                        <br>
+                    </li>
+                    <li>
+                        <strong>加班时长： </strong> {{ user?.worker_workAdd_time }}
+                        <br>
+                    </li>
+                    <div class="form-group">
+                    <li>
+                        <strong>邮箱： </strong> {{ user?.worker_email }}
+                        <br>
+                    </li>
+                    <li>
+                        <strong>地址： </strong> {{ user?.worker_address }}
+                        <br>
+                    </li>
+                    </div>
+                    <li>
+                    <a class="ajax-link" routerLink="/profile-modify" routerLinkActive="active"><button type="submit" class="btn btn-default">修改个人信息</button></a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--/span-->
+
+</div><!--/row-->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <h3>Settings</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>No settings here</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+                        <a href="#" class="btn btn-primary" data-dismiss="modal">Save changes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<div>
+    <router-outlet></router-outlet>
+  </div>

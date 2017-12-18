@@ -1,0 +1,63 @@
+<div class="modal fade" id="workadd_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" *ngIf="workadd">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h3>Details</h3>
+            </div>
+            <div class="modal-body">
+                <div class="box-content">
+            <form role="form" #formRef="ngForm">
+              <fieldset ngModelGroup="modify">
+                  <div class="form-group">
+                      <label for="exampleInputPassword1">申请人</label>
+                      <input class="autogrow form-control"  name="workadd_worker_id" 
+                      [(ngModel)]="workadd.workadd_worker_id" disabled="disabled">
+                  </div>  
+
+                  <div class="form-group">
+                    <label for="selectError">加班类型</label>
+                      <select class="form-control" [(ngModel)]="workadd.workadd_type" name="workadd_type">
+                            <option *ngFor="let option of options" [ngValue]="option.workadd_type_id" name="workadd_type_id"
+                            [selected]="option.workadd_type_id === workadd.workadd_type? 'selected':''">
+                                  {{ option.workadd_type_name }}
+                            </option>
+                      </select>
+                  </div>
+                                  
+                  <div class="form-group">
+                      <label for="exampleInputEmail1">加班时间</label>
+                      <div class="row">
+                      <div class="col-xs-5">
+                          <input type="text" readonly class="form-control form_datetime"  placeholder="加班起始时间" [(ngModel)]="workadd.workadd_start" 
+                            id="workadd_start" name="workadd_start">
+                      </div>
+                      <div class="col-xs-2" style="text-align: center;line-height:38px;height:38px;">至</div>
+                      <div class="col-xs-5">
+                          <input type="text" readonly class="form-control form_datetime"  placeholder="加班终止时间" [(ngModel)]="workadd.workadd_end" 
+                            id="workadd_end" name="workadd_end">
+                      </div>
+                      </div>
+                  </div>
+      
+                  <div class="form-group">
+                      <label for="exampleInputPassword1">加班原因</label>
+                      <textarea class="autogrow form-control"  placeholder="请输入请假原因" name="workadd_reason" 
+                      [(ngModel)]="workadd.workadd_reason"></textarea>
+                  </div>
+
+                  <div class="modal-footer form-group">
+                      <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+                      <a href="#" class="btn btn-primary" data-dismiss="modal" (click)="onSubmit(formRef.value)"
+                         *ngIf="workadd.workadd_add_state == 0">Save changes</a>
+                  </div>   
+              </fieldset>
+                          
+            </form>
+
+        </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

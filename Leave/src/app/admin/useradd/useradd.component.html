@@ -1,0 +1,54 @@
+<div class="row" id="user_add" >
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-edit"></i>添加员工</h2>
+
+                <div class="box-icon">
+                    <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                    <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="name">工号</label>
+                        <input type="text" class="form-control"  placeholder="" 
+                          [(ngModel)]="worker.worker_id" name="worker_id">
+                    </div> 
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" class="form-control"  placeholder="" 
+                          [(ngModel)]="worker.worker_name" name="worker_name">
+                    </div> 
+                    <div class="form-group">
+                        <label for="name">邮箱</label>
+                        <input type="text" class="form-control"  placeholder="" 
+                          [(ngModel)]="worker.worker_email" name="worker_email">
+                    </div> 
+                    <div class="form-group">
+                        <label for="name">地址</label>
+                        <input type="text" class="form-control"  placeholder="" 
+                          [(ngModel)]="worker.worker_address" name="worker_address">
+                    </div>  
+                    <div class="form-group">
+                        <label for="name">密码</label>
+                        <input type="password" class="form-control"  placeholder="" 
+                          [(ngModel)]="password1" name="password1">
+                    </div>   
+                    <div class="form-group">
+                        <label for="name">重复密码</label>
+                        <input type="password" class="form-control"  placeholder="" 
+                          [(ngModel)]="password2" name="password2">
+                    </div>   
+                </form>
+                    <a class="ajax-link" (click)="onSubmit()">
+                      <button type="submit" class="btn btn-default">提交</button>
+                    </a>
+            </div>
+        </div>
+    </div>
+    <!--/span-->
+
+</div>

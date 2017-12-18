@@ -1,0 +1,111 @@
+<div class="row" id="holidays_info">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-edit"></i> 审批下级请假情况</h2>
+
+                <div class="box-icon">
+                    <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                    <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content">
+                <!-- <div id="dt_length" class="dataTables_length">
+                    <label>Show 
+                        <select size="1" name="dt_length" aria-controls="dt" [(ngModel)]="per_page" (ngModelChange)="reinit()">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select> 
+                        entries
+                    </label>
+                </div> -->
+
+                <table class="table table-striped table-bordered bootstrap-datatable" id="dt" style="table-layout:fixed;" *ngIf="dataList !== null">
+                        
+                    <thead>
+                        <tr>
+                            <th *ngFor="let col of columns">
+                                {{ col }}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let entry of dataList" >
+                            <td data-label="编号"> 
+                                    <div class="wrapTd">
+                                        {{ entry['holiday_id'] }}
+                                    </div> 
+                            </td>
+                            <td data-label="工号"> 
+                                <div class="wrapTd">
+                                        {{ entry['holiday_worker_id'] }} 
+                                </div> 
+                            </td>
+                            <td class="center" data-label="开始时间">{{ entry['holiday_time_begin']  }}</td>
+                            <td class="center" data-label="结束时间">{{ entry['holiday_time_end'] }}</td>
+                            <td class="center" data-label="请假类型">{{ options[entry['holiday_type'] - 1].holiday_type_name }}</td>
+                            <td class="center" data-label="请假原因">
+                                <div class="wrapTd">
+                                {{ entry['holiday_reason'] }}
+                                </div>
+                            </td>
+                            <td class="center" data-label="请假状态">
+                                
+                                <span class="label label-default" [ngClass]="getLabel(entry['holiday_app_end'], entry['holiday_app_over'], entry['holiday_apply_ok'], entry['holiday_apply_state'])"> 
+                                    {{ getState(entry['holiday_app_end'], entry['holiday_app_over'], entry['holiday_apply_ok'], entry['holiday_apply_state']) }} 
+                                </span>
+                                
+                            </td>
+                            <td class="center" data-label="申请时间">{{ entry['holiday_apply_time'] }}</td>
+                            <td class="center" data-label="操作">
+                                <a class="btn btn-success btn-sm" (click)="loadLeave(entry)">
+                                    <i class="glyphicon glyphicon-zoom-in icon-white"></i>
+                                    查看
+                                </a>
+                                <a class="btn btn-info btn-sm" (click)="agreeLeave(entry)">
+                                    <i class="glyphicon glyphicon-edit icon-white"></i>
+                                    同意
+                                </a>
+                                
+                                <a class="btn btn-danger btn-sm" (click)="rejectLeave(entry)" 
+                                    *ngIf="entry['holiday_apply_ok'] < 1">
+                                    <i class="glyphicon glyphicon-trash icon-white"></i>
+                                    驳回
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- <ul id="pagination-demo" class="pagination-sm"></ul> -->
+                <app-pagination-bar  [totalPageNumber]="total_page_num" (paginationChange)="freshList($event)" *ngIf="total_page_num != null"></app-pagination-bar>
+                
+            </div>
+        </div>
+    </div>
+    <!--/span-->
+
+    <app-detail [leave]="selectedLeave" [options]="options" [ban]="true"></app-detail>
+</div><!--/row-->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h3>Settings</h3>
+            </div>
+            <div class="modal-body">
+                <p>No settings Here...</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+                <a href="#" class="btn btn-primary" data-dismiss="modal">Save changes</a>
+            </div>
+        </div>
+    </div>
+</div>

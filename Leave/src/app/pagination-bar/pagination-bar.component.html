@@ -1,0 +1,37 @@
+<nav class="page-list">
+  <ul class="pagination">
+      <li>
+          <a (click)="firstPage()">
+              <span>首页</span>
+          </a>
+      </li>
+    <li>
+        <a (click)="previousPage()">
+            <span><<</span>
+        </a>
+    </li>
+    <li *ngFor="let page of pageList" [ngClass]="{'active': page === paginationConf.currentPage}">
+        <a (click)="goToPage(page)" >{{ page }}</a>
+    </li>
+    <li>
+        <a (click)="nextPage()">
+            <span>>></span>
+        </a>
+    </li>
+    <li>
+        <a (click)="lastPage()">
+            <span>尾页</span>
+        </a>
+    </li>
+  </ul>
+  <div class="page-total">
+    第
+    <input #pageNumberInputed (keyup.enter)="pageNumberInputedChanges(pageNumberInputed.value)" placeholder="{{paginationConf.currentPage}}">
+    页 共{{totalPageNumber}}页
+    每页
+    <select [(ngModel)]="selectedPerPageItemNumber" (change)="selectedPerPageItemNumberChanges()">
+      <option *ngFor="let pageLen of perPageOptions" [ngValue]="pageLen">{{pageLen}}</option>
+    </select>
+    条
+  </div>
+</nav>

@@ -1,0 +1,150 @@
+<div class="navbar navbar-default" role="navigation" *ngIf="show">
+  
+    <div class="navbar-inner">
+        <button type="button" class="navbar-toggle pull-left animated flip">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" [routerLink]="user=='admin'?'/admin':'/profile'" routerLinkActive="active"> 
+            <span>Leave Appication</span></a>
+
+        <!-- user dropdown starts -->
+        <div class="btn-group pull-right" id="share_info">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs"> {{ user }} </span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
+                <li class="divider"></li>
+                <li><a (click)="logout()">Logout</a></li>
+            </ul>
+        </div>
+        <!-- user dropdown ends -->
+
+        <!-- theme selector starts -->
+        <div class="btn-group pull-right theme-container animated tada">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <i class="glyphicon glyphicon-tint"></i><span class="hidden-sm hidden-xs"> Change Theme / Skin</span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" id="themes">
+                <li><a data-value="classic" href="#"><i class="whitespace"></i> Classic</a></li>
+                <li><a data-value="cerulean" href="#"><i class="glyphicon glyphicon-ok"></i> Cerulean</a></li>
+                <li><a data-value="cyborg" href="#"><i class="whitespace"></i> Cyborg</a></li>
+                <li><a data-value="simplex" href="#"><i class="whitespace"></i> Simplex</a></li>
+                <li><a data-value="darkly" href="#"><i class="whitespace"></i> Darkly</a></li>
+                <li><a data-value="lumen" href="#"><i class="whitespace"></i> Lumen</a></li>
+                <li><a data-value="slate" href="#"><i class="whitespace"></i> Slate</a></li>
+                <li><a data-value="spacelab" href="#"><i class="whitespace"></i> Spacelab</a></li>
+                <li><a data-value="united" href="#"><i class="whitespace"></i> United</a></li>
+            </ul>
+        </div>
+        <!-- theme selector ends -->
+
+        <!-- <ul class="collapse navbar-collapse nav navbar-nav top-menu">
+            <li></li>
+            <li class="dropdown">
+                
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+                </ul>
+            </li>
+            <li>
+                <form class="navbar-search pull-left">
+                    
+                </form>
+            </li>
+        </ul> -->
+
+    </div>
+</div>
+
+
+<div class="ch-container" *ngIf="show">
+    <div class="row">
+        
+        <!-- left menu starts -->
+        <div class="col-sm-2 col-lg-2">
+            <div class="sidebar-nav">
+                <div class="nav-canvas">
+                    <!-- for user -->
+                    <ul class="nav nav-pills nav-stacked main-menu" style="" *ngIf="user!='admin'">
+                        <li class="nav-header">Home</li>
+                        <li class="active"><a class="ajax-link" routerLink="/profile" routerLinkActive="active">
+                            <i class="glyphicon glyphicon-home"></i><span>个人信息</span></a>
+                        </li>
+                        <li><a class="ajax-link" routerLink="/profile/password-modify"  routerLinkActive="active">
+                            <i class="glyphicon glyphicon-eye-open"></i><span>密码修改</span></a>
+                        </li>
+                        <li><a class="ajax-link" routerLink="/leave/apply"  routerLinkActive="active">
+                            <i class="glyphicon glyphicon-edit"></i><span>请假申请</span></a></li>
+                        <li><a class="ajax-link" routerLink="/workadd/apply"  routerLinkActive="active">
+                            <i class="glyphicon glyphicon-edit"></i><span>加班申请</span></a></li>
+                        <li><a class="ajax-link" href="/leave">
+                            <i class="glyphicon glyphicon-list-alt"></i><span>请假管理</span></a>
+                        </li>
+                        <li><a class="ajax-link" routerLink="/workadd"  routerLinkActive="active">
+                            <i class="glyphicon glyphicon-font"></i><span>加班管理</span></a>
+                        </li>
+                        <li><a class="ajax-link" routerLink="/leave/manage"  routerLinkActive="active">
+                            <i class="glyphicon glyphicon-picture"></i><span>审批下级请假情况</span></a>
+                        </li>
+                        
+                        <li><a class="ajax-link" routerLink="/workadd/manage"  routerLinkActive="active">
+                            <i class="glyphicon glyphicon-align-justify"></i><span>审批下级加班申请</span></a></li>
+                    </ul>
+
+                    <!-- for admin -->
+                    <ul class="nav nav-pills nav-stacked main-menu" style="" *ngIf="user=='admin'">
+                        <li class="nav-header">Home</li>
+                        <li class="active"><a class="ajax-link" routerLink="/admin" routerLinkActive="active">
+                            <i class="glyphicon glyphicon-home"></i><span>用户信息</span></a>
+                        </li>
+
+                        <li><a class="ajax-link" routerLink="/admin/leave"  routerLinkActive="active">
+                            <i class="glyphicon glyphicon-edit"></i><span>请假管理</span></a></li>
+                        <li><a class="ajax-link" routerLink="/admin/workadd"  routerLinkActive="active">
+                            <i class="glyphicon glyphicon-edit"></i><span>加班管理</span></a></li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+        <!--/span-->
+        <!-- left menu ends -->
+
+        <noscript>
+            &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;div class="alert alert-block col-md-12"&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;
+                &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;h4 class="alert-heading"&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;Warning!&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;/h4&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;
+
+                &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;p&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;You need to have &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank"&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;JavaScript&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;/a&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;
+                    enabled to use this site.&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;/p&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;
+            &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;/div&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;
+        </noscript>
+
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+            <div>
+    <!-- <ul class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="#">个人信息</a>
+        </li>
+    </ul> -->
+</div>
+
+
+<div>
+  <router-outlet></router-outlet>
+</div>
