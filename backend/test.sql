@@ -1,0 +1,14 @@
+INSERT INTO ClassDesign.worker_degree (department_id, degree_id, worker_id) VALUES (1, 1, '3013218001');
+INSERT INTO ClassDesign.worker_degree (department_id, degree_id, worker_id) VALUES (2, 1, '3013218006');
+INSERT INTO ClassDesign.worker_degree (department_id, degree_id, worker_id) VALUES (1, 2, '3013218002');
+INSERT INTO ClassDesign.worker_degree (department_id, degree_id, worker_id) VALUES (2, 2, '3013218007');
+INSERT INTO ClassDesign.worker_degree (department_id, degree_id, worker_id) VALUES (1, 3, '3013218003');
+INSERT INTO ClassDesign.worker_degree (department_id, degree_id, worker_id) VALUES (2, 3, '3013218008');
+INSERT INTO ClassDesign.worker_degree (department_id, degree_id, worker_id) VALUES (1, 4, '3013218004');
+INSERT INTO ClassDesign.worker_degree (department_id, degree_id, worker_id) VALUES (2, 4, '3013218004');
+INSERT INTO ClassDesign.worker_degree (department_id, degree_id, worker_id) VALUES (3, 4, '3013218004');
+INSERT INTO ClassDesign.worker_degree (department_id, degree_id, worker_id) VALUES (4, 4, '3013218004');
+INSERT INTO ClassDesign.worker_degree (department_id, degree_id, worker_id) VALUES (1, 5, '3013218005');
+INSERT INTO ClassDesign.worker_degree (department_id, degree_id, worker_id) VALUES (2, 5, '3013218005');
+INSERT INTO ClassDesign.worker_degree (department_id, degree_id, worker_id) VALUES (3, 5, '3013218005');
+INSERT INTO ClassDesign.worker_degree (department_id, degree_id, worker_id) VALUES (4, 5, '3013218005');
